@@ -21,6 +21,10 @@ The design uses soft shadows, rounded corners, and a 4K macOS-style background i
 <img width="1364" height="603" alt="v2" src="https://github.com/user-attachments/assets/090f3b88-ad27-45c8-b5df-884620c611ad" />
 
 
+https://github.com/user-attachments/assets/a2992cce-1f59-4aad-bf34-7811e35d3ddc
+
+
+
 ## 🚀 How to Use
 
 1. Clone the repository:
