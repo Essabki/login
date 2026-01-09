@@ -26,6 +26,42 @@ The design uses soft shadows, rounded corners, and a 4K macOS-style background i
 1. Clone the repository:
 ```bash
 https://github.com/Essabki/login.git
+```
+---
+# macOS Style Login / Sign Up (Node.js)
+
+A modern **macOS-inspired Login & Sign Up page** built with **HTML, CSS, JavaScript**, and served using **Node.js + Express**.
+
+The UI uses soft shadows, rounded corners, and a **4K macOS-style background image** for a clean Apple-like experience.
+
+---
+
+## ✨ Features
+
+- macOS-style UI design
+- Login & Sign Up on the same page
+- Switch between Login and Sign Up
+- Show / Hide password 👁️
+- Responsive layout
+- 4K macOS background image
+- Node.js server (Express)
+- Static file serving
+
+---
+## 📂 Project Structure
+
+```text
+login/
+│
+├── server.js
+├── package.json
+├── public/
+│   ├── index.html
+│   └── background.jpg
+│
+└── README.md
+```
+
 
 🛠️ Technologies Used
 
