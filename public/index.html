@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login / Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    width: 350px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+.switch {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch span {
+    color: #667eea;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+        <h2>Login</h2>
+
+        <input id="li-email" type="email" placeholder="Email">
+        <input id="li-password" type="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <div class="switch">
+            Don’t have an account?
+            <span onclick="showSignup()">Sign up</span>
+        </div>
+    </div>
+
+    <!-- SIGN UP -->
+    <div id="signupBox" class="hidden">
+        <h2>Sign Up</h2>
+
+        <input id="su-username" type="text" placeholder="Username">
+        <input id="su-email" type="email" placeholder="Email">
+        <input id="su-password" type="password" placeholder="Password">
+
+        <button onclick="signup()">Create Account</button>
+
+        <div class="switch">
+            Already have an account?
+            <span onclick="showLogin()">Login</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showSignup() {
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("signupBox").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("signupBox").classList.add("hidden");
+    document.getElementById("loginBox").classList.remove("hidden");
+}
+
+// SIGN UP
+async function signup() {
+    const username = document.getElementById("su-username").value.trim();
+    const email = document.getElementById("su-email").value.trim();
+    const password = document.getElementById("su-password").value.trim();
+
+    if (!username || !email || !password) {
+        alert("Fill all fields");
+        return;
+    }
+
+    try {
+        const res = await fetch("/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+        alert(data.message);
+
+        if (res.ok) showLogin();
+    } catch (err) {
+        alert("Error connecting to server");
+        console.error(err);
+    }
+}
+
+// LOGIN
+async function login() {
+    const email = document.getElementById("li-email").value.trim();
+    const password = document.getElementById("li-password").value.trim();
+
+    if (!email || !password) {
+        alert("Fill all fields");
+        return;
+    }
+
+    try {
+        const res = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+        alert(data.message);
+    } catch (err) {
+        alert("Error connecting to server");
+        console.error(err);
+    }
+}
+</script>
+
+</body>
+</html>
