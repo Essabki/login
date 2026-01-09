@@ -25,7 +25,8 @@ The design uses soft shadows, rounded corners, and a 4K macOS-style background i
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+https://github.com/Essabki/login.git
+
 🛠️ Technologies Used
 
 HTML5
