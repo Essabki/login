@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Login / Sign Up</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+}
+
+/* LEFT = WHITE LOGIN */
+.left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+/* LOGIN CONTAINER */
+.container {
+    width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+    background: transparent;
+}
+
+/* TEXT */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* INPUTS */
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.11);
+    border: 2px solid rgb(2, 131, 2);
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+input:focus {
+    border-color: rgb(2, 131, 2);
+    box-shadow: 0 0 6px  rgb(2, 131, 2);
+    background-color: #ffffff;
+}
+
+/* TOGGLE */
+.toggle-pass {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background:  rgb(2, 131, 2);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* SWITCH */
+.switch {
+    margin-top: 15px;
+    text-align: center;
+    color: #000000;
+}
+
+.switch span {
+    font-weight: bold;
+    cursor: pointer;
+    color:  rgb(2, 131, 2);
+}
+
+/* HIDE */
+.hidden {
+    display: none;
+}
+
+/* RIGHT = IMAGE */
+.right {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    background: url('https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg')
+                no-repeat center center / cover;
+}
+
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(1px);
+}
+
+/* CENTER TEXT */
+.center {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.center h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.center p {
+    font-size: 18px;
+    color: #eee;
+    max-width: 400px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEFT SIDE -->
+<div class="left">
+    <div class="container">
+
+        <!-- LOGIN -->
+        <div id="loginBox">
+            <h2>Login</h2>
+
+            <div class="input-container">
+                <input id="li-email" type="email" placeholder="Email">
+            </div>
+
+            <div class="input-container">
+                <input id="li-password" type="password" placeholder="Password">
+                <span class="toggle-pass" onclick="togglePassword('li-password', this)">👁️</span>
+            </div>
+
+            <button onclick="login()">Login</button>
+
+            <div class="switch">
+                Don’t have an account?
+                <span onclick="showSignup()">Sign up</span>
+            </div>
+        </div>
+
+        <!-- SIGN UP -->
+        <div id="signupBox" class="hidden">
+            <h2>Sign Up</h2>
+
+            <div class="input-container">
+                <input id="su-username" type="text" placeholder="Username">
+            </div>
+
+            <div class="input-container">
+                <input id="su-email" type="email" placeholder="Email">
+            </div>
+
+            <div class="input-container">
+                <input id="su-password" type="password" placeholder="Password">
+                <span class="toggle-pass" onclick="togglePassword('su-password', this)">👁️</span>
+            </div>
+
+            <button onclick="signup()">Create Account</button>
+
+            <div class="switch">
+                Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="right">
+    <div class="overlay"></div>
+    <div class="center">
+        <h1>Welcome Back</h1>
+        <p>Please login to continue</p>
+    </div>
+</div>
+
+<script>
+function showSignup() {
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("signupBox").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("signupBox").classList.add("hidden");
+    document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function togglePassword(id, icon) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "🙈";
+    } else {
+        input.type = "password";
+        icon.textContent = "👁️";
+    }
+}
+
+function login() {
+    alert("Login clicked");
+}
+
+function signup() {
+    alert("Sign up clicked");
+}
+</script>
+
+</body>
+</html>
