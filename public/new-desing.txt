@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Login / Sign Up</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -19,22 +16,42 @@ body {
     display: flex;
 }
 
-/* LEFT = WHITE LOGIN */
+/* LEFT */
 .left {
     width: 50%;
     height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: url('https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg')
+                no-repeat center center / cover;
 }
 
-/* LOGIN CONTAINER */
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.288);
+    backdrop-filter: blur(0px);
+}
+
+/* RIGHT */
+.right {
+    width: 50%;
+    background: rgb(255, 255, 255);
+}
+
+/* CONTAINER */
 .container {
     width: 380px;
     padding: 30px;
     border-radius: 20px;
-    background: transparent;
+    background: #00000080;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    z-index: 2;
+
 }
 
 /* TEXT */
@@ -44,7 +61,6 @@ h2 {
     color: white;
 }
 
-/* INPUTS */
 .input-container {
     position: relative;
     margin-bottom: 15px;
@@ -54,19 +70,20 @@ input {
     width: 100%;
     padding: 12px 40px 12px 15px;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.11);
-    border: 2px solid rgb(2, 131, 2);
-    outline: none;
-    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+
+    background-color: rgba(248, 248, 248, 0.082);
+    border: 2px solid rgba(255, 255, 255, 0);
+
+    outline: none;                 /* 👈 IMPORTANT */
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 input:focus {
-    border-color: rgb(2, 131, 2);
-    box-shadow: 0 0 6px  rgb(2, 131, 2);
+    border-color: #667eea;         /* ✅ visible change */
+    box-shadow: 0 0 6px rgba(102, 126, 234, 0.6);
     background-color: #ffffff;
 }
 
-/* TOGGLE */
 .toggle-pass {
     position: absolute;
     right: 12px;
@@ -75,62 +92,38 @@ input:focus {
     cursor: pointer;
 }
 
-/* BUTTON */
 button {
     width: 100%;
     padding: 12px;
     border-radius: 12px;
     border: none;
-    background:  rgb(2, 131, 2);
+    background: #667eea;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
-/* SWITCH */
 .switch {
     margin-top: 15px;
     text-align: center;
-    color: #000000;
+    color: #eee;
 }
 
 .switch span {
     font-weight: bold;
     cursor: pointer;
-    color:  rgb(2, 131, 2);
 }
 
-/* HIDE */
 .hidden {
     display: none;
 }
-
-/* RIGHT = IMAGE */
-.right {
-    width: 50%;
-    height: 100vh;
-    position: relative;
-    background: url('https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg')
-                no-repeat center center / cover;
-}
-
-/* OVERLAY */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(1px);
-}
-
-/* CENTER TEXT */
+/* RIGHT SIDE TEXT CENTER */
 .center {
-    position: relative;
-    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center;     /* horizontal center */
+    justify-content: center; /* vertical center */
     text-align: center;
     padding: 40px;
 }
@@ -138,21 +131,23 @@ button {
 .center h1 {
     font-size: 36px;
     margin-bottom: 15px;
-    color: white;
+    color: #333;
 }
 
 .center p {
     font-size: 18px;
-    color: #eee;
+    color: #666;
     max-width: 400px;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- LEFT SIDE -->
 <div class="left">
+    <div class="overlay"></div>
+
     <div class="container">
 
         <!-- LOGIN -->
@@ -204,9 +199,7 @@ button {
     </div>
 </div>
 
-<!-- RIGHT SIDE -->
 <div class="right">
-    <div class="overlay"></div>
     <div class="center">
         <h1>Welcome Back</h1>
         <p>Please login to continue</p>
@@ -236,11 +229,11 @@ function togglePassword(id, icon) {
 }
 
 function login() {
-    alert("Login clicked");
+    alert("Login clicked (JS works)");
 }
 
 function signup() {
-    alert("Sign up clicked");
+    alert("Signup clicked (JS works)");
 }
 </script>
 
