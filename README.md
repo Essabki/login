@@ -22,6 +22,11 @@ The design uses soft shadows, rounded corners, and a 4K macOS-style background i
 
 
 https://github.com/user-attachments/assets/a2992cce-1f59-4aad-bf34-7811e35d3ddc
+---
+## A new Desing in .txt
+<img width="1680" height="878" alt="Capture d’écran 2026-01-10 093322" src="https://github.com/user-attachments/assets/43e93d09-7fc3-4180-af32-19ee291962b7" />
+
+<img width="1362" height="599" alt="Capture d’écran 2026-01-10 100942" src="https://github.com/user-attachments/assets/97d35adc-d376-46ee-abc3-660c17fc564e" />
 
 
 
