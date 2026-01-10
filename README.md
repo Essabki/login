@@ -19,12 +19,10 @@ The design uses soft shadows, rounded corners, and a 4K macOS-style background i
 
 ## 📂 Project Structure
 <img width="1364" height="603" alt="v2" src="https://github.com/user-attachments/assets/090f3b88-ad27-45c8-b5df-884620c611ad" />
-
-
-https://github.com/user-attachments/assets/a2992cce-1f59-4aad-bf34-7811e35d3ddc
 ---
 ## A new Desing in .txt
-<img width="1680" height="878" alt="Capture d’écran 2026-01-10 093322" src="https://github.com/user-attachments/assets/43e93d09-7fc3-4180-af32-19ee291962b7" />
+<img width="1365" height="608" alt="Capture d’écran 2026-01-10 103259" src="https://github.com/user-attachments/assets/f3da9bb7-487e-4985-b2f1-4b276ebd395e" />
+
 ## 🚀 How to Use
 
 1. Clone the repository:
